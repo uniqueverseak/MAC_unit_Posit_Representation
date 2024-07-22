@@ -1,0 +1,21 @@
+pip install softposit
+
+
+from softposit import posit8
+def positmul(op1,op2):
+  binary1=int(op1,2)
+  binary2=int(op2,2)
+  posit_value1 = posit8(bits=binary1)
+  posit_value2 = posit8(bits=binary2)
+  decimal_value1 = float(posit_value1)
+  decimal_value2 = float(posit_value2)
+  multi= decimal_value1*decimal_value2
+  print(multi)
+  posit_value = posit8(multi)
+  l=bin(posit_value.v.v)[2:].zfill(8)
+  b=str(l)
+  binary=int(b,2)
+  posit_valu = posit8(bits=binary)
+  decimal_value = float(posit_valu)
+  print(decimal_value)
+  return bin(posit_value.v.v)[2:].zfill(8)
